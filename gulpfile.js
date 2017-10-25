@@ -27,8 +27,9 @@ gulp.task('add-styles', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(src + '*.pug', ['build-pug', 'add-styles']);
-    gulp.watch(src + '*.sass', ['build-sass', 'build-pug', 'add-styles']);
+    gulp.watch(src + '*.pug', ['build-pug']);
+    gulp.watch(src + '*.sass', ['build-sass']);
+    gulp.watch(dist + '**/*.html', ['add-styles'])
 });
 
-gulp.task('default', ['watch', 'build-pug', 'build-sass', 'add-styles']);
+gulp.task('default', ['watch', 'build-pug', 'build-sass']);
