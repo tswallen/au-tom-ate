@@ -1,0 +1,8 @@
+mixin titled-list(id, data=[{heading, subheading, listparent:[{listchild}]}])
+    each item in data
+            .titled-list-containter(id=id)
+                h1.titled-list-heading #{item.heading}
+                h2.titled-list-subheading #{item.subheading}
+                ul.titled-list-container
+                each child in item.listparent
+                    li.titled-list-item #{child.listchild}
