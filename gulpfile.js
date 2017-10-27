@@ -3,7 +3,7 @@ var pug = require('gulp-pug');
 var sass = require('gulp-sass');
 var styleInject = require("gulp-style-inject");
 
-var src = 'src/**/';
+var src = 'src/';
 var dist = 'dist/';
 
 gulp.task('build-pug', function buildHTML() {
@@ -28,8 +28,8 @@ gulp.task('add-styles', function () {
 
 gulp.task('watch', function () {
     gulp.watch(src + '*.pug', ['build-pug']);
-    gulp.watch(src + '*.sass', ['build-sass']);
-    gulp.watch(dist + '**/*.html', ['add-styles'])
+    gulp.watch(src + '*.sass', ['build-sass', 'build-pug']);
+    gulp.watch(dist + '*.html', ['add-styles'])
 });
 
-gulp.task('default', ['watch', 'build-pug', 'build-sass']);
+gulp.task('default', ['watch']);
