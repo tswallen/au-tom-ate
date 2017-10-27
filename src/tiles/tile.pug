@@ -1,14 +1,9 @@
-<!-- inject-style src="./dist/tiles/tile.css" -->
-- 
-    var tiles = [
-        {heading: '', subheading: '', body: '', imgsrc: '', imgalt: ''}
-        ];
-
-.tiles-container
-    each tile in tiles
-        .tiles-tile-container
-            if tile.imgsrc
-                img(src=tile.imgsrc, alt=tile.imgalt).tiles-tile-img
-            h1.tiles-tile-heading #{tile.heading}
-            h2.tiles-tile-subheading #{tile.subheading}
-            p.tiles-tile-body #{tile.body}
+mixin tiles(id, data=[{heading, subheading, body, imgsrc, imgalt}])
+    .tiles-container(id=id)
+        each tile in data
+            .tiles-tile-container
+                if tile.imgsrc
+                    img(src=tile.imgsrc, alt=tile.imgalt).tiles-tile-img
+                h1.tiles-tile-heading #{tile.heading}
+                h2.tiles-tile-subheading #{tile.subheading}
+                p.tiles-tile-body #{tile.body}
