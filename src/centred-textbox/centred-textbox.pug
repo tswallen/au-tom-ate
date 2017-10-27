@@ -1,0 +1,7 @@
+mixin centred-textbox(id, data=[{heading, subheading, body, buttontext, buttonurl}])
+    each item in data
+        .centred-textbox-container(id=id)
+            h1.centred-textbox-heading #{item.heading}
+            h2.centred-textbox-subheading #{item.subheading}
+            p.centred-textbox-body #{item.body}
+            button.centred-textbox-button #{item.buttontext}
